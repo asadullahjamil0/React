@@ -1,0 +1,11 @@
+.Asad{
+    background-color: rgb(87, 87, 87);
+    color: white;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

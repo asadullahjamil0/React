@@ -1,0 +1,7 @@
+div.cards{
+    margin: 32px;
+    border: 2px solid black;
+    width: 20vw;
+    padding: 5px;
+    height: 40vh;
+}
