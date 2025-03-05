@@ -1,0 +1,19 @@
+.heading {
+  color: red;
+}
+
+ul {
+  color: rgb(35, 134, 48);
+}
+
+.img .flx {
+  height: 100px;
+  width: 100px;
+}
+
+.img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
