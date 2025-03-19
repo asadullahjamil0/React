@@ -1,21 +1,16 @@
 import React, { useState } from "react";
 
-function handleClick() {}
-
 function Itemlist(props) {
-  var [styleList, setListStyle] = useState({
-    textDecoration: "line-through",
-  });
-  var [condition, useCondition] = useState(false);
-
-  function handleClick() {
-    return useCondition(condition === true ? false : true);
-  }
+  function handleClick() {}
 
   return (
-    <li style={condition === true ? styleList : null} onClick={handleClick}>
-      {props.item}
-    </li>
+    <div
+      onClick={() => {
+        return props.onChecked(props.id);
+      }}
+    >
+      <li>{props.item}</li>
+    </div>
   );
 }
 export default Itemlist;

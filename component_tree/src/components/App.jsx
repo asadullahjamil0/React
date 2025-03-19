@@ -13,8 +13,15 @@ function App() {
     setItemText((prevValue) => {
       return [...prevValue, changedItem];
     });
-    // setItemText(" ");
     setChangedItem("");
+  }
+
+  function deleteItem(id) {
+    return setItemText((prevValue) => {
+      return prevValue.filter((item, index) => {
+        return index !== id;
+      });
+    });
   }
 
   return (
@@ -30,8 +37,13 @@ function App() {
       </div>
       <div>
         <ul>
-          {itemText.map((val) => (
-            <Itemlist item={val} />
+          {itemText.map((val, index) => (
+            <Itemlist
+              key={index}
+              id={index}
+              item={val}
+              onChecked={deleteItem}
+            />
           ))}
         </ul>
       </div>
