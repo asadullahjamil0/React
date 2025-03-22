@@ -5,23 +5,39 @@ import Note from "./Note";
 import CreateArea from "./CreateArea";
 
 function App() {
-  const [comp, setComp] = useState([]);
+  var [card, setCard] = useState([]);
+  function addItem(note) {
+    setCard((prevVal) => {
+      return [...prevVal, note];
+    });
+  }
 
-  function handleClick(changedText) {
-    return setComp((prevVal) => {
-      return [...prevVal, changedText];
+  function deleteItem(id) {
+    setCard((prevValue) => {
+      return prevValue.filter((items, index) => {
+        if (index !== id) {
+          return [...prevValue, items];
+        }
+      });
     });
   }
 
   return (
     <div>
       <Header />
-      <CreateArea add={handleClick} />
+      <CreateArea add={addItem} />
       <div>
-        {comp.map((card) => (
-          <p>{card}</p>
+        {card.map((items, index) => (
+          <Note
+            key={index}
+            id={index}
+            title={items.title}
+            content={items.content}
+            delete={deleteItem}
+          />
         ))}
       </div>
+
       <Footer />
     </div>
   );

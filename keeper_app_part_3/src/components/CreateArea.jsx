@@ -3,8 +3,8 @@ import Note from "./Note";
 
 function CreateArea(props) {
   const [note, setNote] = useState({
-    title: "Title",
-    content: "Take a note...",
+    title: "",
+    content: "",
   });
 
   function handleChange(event) {
@@ -20,10 +20,16 @@ function CreateArea(props) {
   return (
     <div>
       <form>
-        <input onChange={handleChange} name="title" placeholder="Title" />
+        <input
+          onChange={handleChange}
+          value={note.title}
+          name="title"
+          placeholder="Title"
+        />
         <textarea
           onChange={handleChange}
           name="content"
+          value={note.content}
           placeholder="Take a note..."
           rows="3"
         />
@@ -31,6 +37,10 @@ function CreateArea(props) {
           onClick={(event) => {
             props.add(note);
             event.preventDefault();
+            setNote({
+              title: "",
+              content: "",
+            });
           }}
         >
           Add
